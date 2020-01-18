@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CPMPlayer.cs" />
     <Compile Include="Assets\destoryTimer.cs" />
     <Compile Include="Assets\FlashBlue.cs" />
     <Compile Include="Assets\Plama Pong\destroyOnEmissionEnd.cs" />
