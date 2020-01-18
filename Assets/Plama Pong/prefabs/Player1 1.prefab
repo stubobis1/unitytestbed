@@ -136,12 +136,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveAxis: Vertical2
   shootButton: Fire2
-  velocity: 20
+  velocity: 35
   shootStart: {fileID: 6737047154129536522}
   pushParticle: {fileID: 789833162920965596, guid: a9bc678c7afdbec4ebbf174c5eee9bd8,
     type: 3}
   rb: {fileID: 1926407754757121033}
-  FireTime: 1
+  fireTime: 0.1
+  firePower: 10
 --- !u!212 &3884178526358809822
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -203,7 +204,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000
   m_LinearDrag: 4
   m_AngularDrag: 0.05
   m_GravityScale: 0

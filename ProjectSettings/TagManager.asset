@@ -6,6 +6,7 @@ TagManager:
   tags:
   - player1Score
   - player2Score
+  - particleShot
   layers:
   - Default
   - TransparentFX
@@ -15,8 +16,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - ParticleShot
+  - Ball
   - 
   - 
   - 

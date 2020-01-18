@@ -8,7 +8,7 @@ public class plasmaPongBall : MonoBehaviour
     public Rigidbody2D rb;
     public GameObject Explosion;
 
-    public float StartSpeed = 1f;
+    public float StartSpeed = 10f;
     private void Start()
     {
         if (rb == null)
@@ -20,8 +20,8 @@ public class plasmaPongBall : MonoBehaviour
 
     private void ResetBall()
     {
-        //this.rb.AddForce(new Vector2((Random.value - 0.5f) * 3f, Random.value - 0.5f).normalized, ForceMode2D.Impulse);
-        this.rb.AddForce(new Vector2(-15f, 0f));
+       this.rb.AddForce(new Vector2((Random.value - 0.5f) * 3f, Random.value - 0.5f).normalized * StartSpeed, ForceMode2D.Impulse);
+       // this.rb.AddForce(new Vector2(-15f, 0f));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

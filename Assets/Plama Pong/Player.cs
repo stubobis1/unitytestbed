@@ -12,7 +12,8 @@ public class Player : MonoBehaviour
     public GameObject pushParticle;
     public Rigidbody2D rb;
 
-    public float FireTime = 1f;
+    public float fireTime = 1f;
+    public float firePower = 100f;
     
     void Start()
     {
@@ -29,23 +30,25 @@ public class Player : MonoBehaviour
         if (Input.GetButton(shootButton) && Time.time > nextFireTime)
         {
             shoot();
-            nextFireTime = Time.time + FireTime;
+            nextFireTime = Time.time + fireTime;
         }
         move();
     }
 
     void move()
     {
-        var movement = Time.deltaTime * velocity * Input.GetAxis(moveAxis);
+        var movement = Time.deltaTime * velocity * rb.mass * Input.GetAxis(moveAxis);
         this.rb.AddForce(new Vector2(0, movement), ForceMode2D.Impulse);
+        //this.rb.velocity = new Vector2(0, movement);
     }
     void shoot()
     {
         var go = Instantiate(pushParticle, new Vector3(shootStart.position.x, shootStart.position.y, 0f), Quaternion.identity);
         var gorb = go.GetComponent<Rigidbody2D>();
         var dir =  gorb.position - rb.position;
+        dir.y += Random.Range(-0.01f, .01f) * firePower ;
         //dir.Normalize();
-        gorb.AddForce(dir * 1f, ForceMode2D.Impulse);
+        gorb.AddForce(dir * firePower, ForceMode2D.Impulse);
 
     }
 }

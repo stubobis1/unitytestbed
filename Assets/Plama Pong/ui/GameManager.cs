@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     int Player1Score;
     int Player2Score;
 
+    public GameObject Ball;
 
     public enum Status {
         start,
@@ -36,10 +37,9 @@ public class GameManager : MonoBehaviour
         switch (GMStatus)
         {
             case Status.start:
-            
             case Status.scored:
-
-                GMStatus = Status.playing;
+                ResetMatch();
+                
                 break;
             case Status.playing:
             default:
@@ -57,7 +57,24 @@ public class GameManager : MonoBehaviour
         {
             Player1Score++;
         }
-        
+        if (playerScoredOn == 2)
+        {
+            Player2Score++;
+        }
+        GMStatus = Status.scored;
+    }
+
+
+    public void ResetMatch()
+    {
+
+        Player1ScoreText.text = "Score: " + Player1Score;
+        Player2ScoreText.text = "Score: " + Player2Score;
+
+        GMStatus = Status.playing;
+
+        var ball = Instantiate(Ball);
+        ball.GetComponent<plasmaPongBall>().GM = this;
     }
 
 }
